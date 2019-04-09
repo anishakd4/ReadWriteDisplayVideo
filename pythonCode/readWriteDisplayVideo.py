@@ -47,7 +47,7 @@ if(cameraCapture.isOpened() == False):
 frame_width = int(cameraCapture.get(3))
 frame_height = int(cameraCapture.get(4))
 
-#Define the codec and create VideoWritter object. The output is stored in "output.avi" file
+#Define the codec and create VideoWritter object. The output is stored in "camera_video.avi" file
 videoWritter = cv2.VideoWriter('camera_video.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 10, (frame_width, frame_height))
 
 #create window for showing input video
