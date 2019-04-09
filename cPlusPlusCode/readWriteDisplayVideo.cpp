@@ -37,5 +37,43 @@ int main(){
 
     destroyAllWindows();
 
+    VideoCapture cameraCapture(0);
+
+    if(!cameraCapture.isOpened()){
+        cout<<"Error opening camera"<<endl;
+        return -1;
+    }
+
+    int frame_width = cameraCapture.get(CV_CAP_PROP_FRAME_WIDTH);
+    int frame_height = cameraCapture.get(CV_CAP_PROP_FRAME_HEIGHT);
+
+    VideoWriter video("camera_video.avi", CV_FOURCC('M', 'J', 'P', 'G'), 10, Size(frame_width, frame_height));
+
+    namedWindow("camera video", WINDOW_NORMAL);
+
+    while(1){
+        Mat frame;
+
+        cameraCapture >> frame;
+
+        if(frame.empty()){
+            break;
+        }
+
+        video.write(frame);
+
+        imshow("camera video", frame);
+
+        char c= (char)waitKey(1);
+        if(c == 27){
+            break;
+        }
+    }
+
+    cameraCapture.release();
+    video.release();
+
+    destroyAllWindows();
+
     return 0;
 }
