@@ -24,7 +24,7 @@ cmake --build . --config Release
 cd ..
 
 ### Execute programs
-./build/faceLandmark
+./build/readWriteDisplayVideo
 
 
 # How to run Python Code
@@ -32,4 +32,4 @@ cd ..
 cd pythonCode
 
 ### Run the code
-python3 faceLandmark.py
+python3 readWriteDisplayVideo.py
